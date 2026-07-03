@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import webExtension from '@samrum/vite-plugin-web-extension'
+import webExtension from '/vite-plugin-web-extension'"latest"
 import path from 'path'
 
 export default defineConfig({
