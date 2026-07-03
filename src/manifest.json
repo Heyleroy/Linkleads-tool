@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "LinkLeads - LinkedIn Profile Enrichment",
+  "version": "1.0.0",
+  "description": "Enrich LinkedIn profiles with enriched data lookup",
+  "permissions": [
+    "storage",
+    "identity",
+    "identity.email"
+  ],
+  "host_permissions": [
+    "https://*.linkedin.com/*",
+    "https://*.supabase.co/*"
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "src/assets/icon-16.png",
+      "48": "src/assets/icon-48.png",
+      "128": "src/assets/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "src/assets/icon-16.png",
+    "48": "src/assets/icon-48.png",
+    "128": "src/assets/icon-128.png"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.linkedin.com/*"],
+      "js": ["src/content/content-script.ts"]
+    }
+  ],
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "email",
+      "profile"
+    ]
+  },
+  "action_default_popup": "src/popup/index.html"
+}
